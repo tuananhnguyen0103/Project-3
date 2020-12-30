@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+@section script
+{
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '',
+                cookie: true,
+                xfbml: true,
+                version: '1.1'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+
+        FB.login(function (response) {
+            if (response.status === 'connected') {
+                // Logged into your webpage and Facebook.
+            } else {
+                // The person is not logged into your webpage or we are unable to tell. 
+            }
+        }, { scope: 'public_profile,email' });
+    
+        FB.logout(function (response) {//đăng xuất
+            // Person is now logged out
+        });
+
+        function checkLoginState() {
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+        }
+
+    </script>
+}
+<body>
+    <div class="fb-login-button" data-size="medium" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="true" data-width=""></div>
+</body>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=1265272167149858&autoLogAppEvents=1" nonce="Ko6yzjJq"></script>

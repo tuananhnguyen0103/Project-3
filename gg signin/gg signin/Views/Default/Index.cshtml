@@ -1,0 +1,23 @@
+﻿@model gg_signin.Models.google
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    
+    <script src="@Url.Content("https://apis.google.com/js/platform.js")" async defer></script>
+    <meta name="google-signin-client_id" content="1090741461075-allg0i0h163shg22nr07jsd8oejeac60.apps.googleusercontent.com">
+    
+</head>
+<body>
+    <div id="google" ng-app="gg" ng-controller="sign_in">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    </div>
+    <div id="span" ng-app='MyModule' ng-controller="MyController">
+        Hi
+    </div>
+    <script src="~/Content/angular.min.js"></script>
+    <script src="@Url.Content("~/Content/js.js")"></script>
+</body>
+
+
